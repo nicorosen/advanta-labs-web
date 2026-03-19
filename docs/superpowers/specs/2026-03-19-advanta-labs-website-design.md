@@ -104,6 +104,7 @@ src/
 
 ### 3. Services Section
 
+- Anchor: `#services`
 - Section label: "Our Services"
 - Section heading: "AI Solutions That Take Your Business to the Next Level"
 - Section subtext: "We design, develop, and implement automation tools that help you work smarter, not harder"
@@ -139,6 +140,7 @@ src/
 
 ### 4. Process Section
 
+- Anchor: `#process`
 - Section label: "Our Process"
 - Section heading: "Our Simple, Smart, and Scalable Process"
 - Section subtext: "We design, develop, and implement automation tools that help you work smarter, not harder"
@@ -167,6 +169,7 @@ src/
 
 ### 5. Benefits Section
 
+- Anchor: `#benefits`
 - Section label: "Benefits"
 - Section heading: "The Key Benefits of AI for Your Business Growth"
 - Section subtext: "Discover how AI automation enhances efficiency, reduces costs, and drives business growth with smarter, faster processes."
@@ -185,8 +188,8 @@ Cards:
 - Anchor: `#about`
 - Brief company overview section
 - Heading: "About Advanta Labs"
-- Body text introducing the team and mission, emphasizing AI expertise for corporations
-- Optional: team photo placeholder or abstract graphic
+- Body: "Advanta Labs is a team of AI specialists dedicated to helping corporations harness the power of intelligent automation. We combine deep technical expertise with strategic consulting to deliver solutions that drive real business outcomes. From workflow automation to custom AI systems, we partner with enterprises to build smarter, faster, and more resilient operations."
+- Optional: abstract graphic or geometric pattern (no team photo needed for initial build)
 - Keep this lightweight since it is a single-page site (not a full about page)
 
 ### 7. CTA Banner Section
@@ -203,7 +206,7 @@ Cards:
 - Heading: "Get in Touch"
 - Simple contact form: Name, Email, Message fields + "Send Message" submit button
 - Form is decorative/placeholder in initial build (no backend). Can be wired to a Vercel serverless function or third-party service later.
-- Alternately, display email address and LinkedIn link alongside the form
+- Display email address and LinkedIn link alongside the form as secondary contact methods
 
 ### 9. Footer
 
