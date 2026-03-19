@@ -8,7 +8,7 @@ Replicate the www.advantalabs.co marketing site as a Next.js application. The ne
 
 - **Framework:** Next.js 14 (App Router) + TypeScript
 - **Styling:** CSS Modules
-- **Fonts:** Figtree (primary), Inter, Fragment Mono, Satoshi (via next/font / Google Fonts)
+- **Fonts:** Figtree (headings, weight 700-900), Inter (body text, weight 400-600), Fragment Mono (code/decorative UI elements), Satoshi (card labels/tags) - via next/font / Google Fonts
 - **Animations:** Framer Motion (scroll-triggered reveals, hover effects, transitions)
 - **Deployment:** Vercel (build first, deploy later)
 
@@ -18,11 +18,19 @@ Replicate the www.advantalabs.co marketing site as a Next.js application. The ne
 :root {
   --color-primary: #23decb;
   --color-primary-dim: rgba(35, 222, 203, 0.1);
+  --color-accent: #1a5ef0;
   --color-bg: #000000;
   --color-surface: #0d0d0d;
   --color-border: #222222;
   --color-text: #ffffff;
   --color-text-muted: #9ca3af;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+
+  --transition-fast: 0.2s;
+  --transition-normal: 0.3s;
 }
 ```
 
@@ -50,6 +58,15 @@ src/
     Benefits/
       Benefits.tsx
       Benefits.module.css
+    About/
+      About.tsx
+      About.module.css
+    CtaBanner/
+      CtaBanner.tsx
+      CtaBanner.module.css
+    Contact/
+      Contact.tsx
+      Contact.module.css
     Footer/
       Footer.tsx
       Footer.module.css
@@ -68,10 +85,11 @@ src/
 
 - Fixed position at top with backdrop blur on scroll
 - Logo: "Advanta Labs" (left)
-- Navigation links: Home, About, Contact (center)
+- Navigation links (center): Home (#hero), About (#about), Contact (#contact)
 - CTA button: "Book a call" (right)
 - Mobile: hamburger menu with slide-out drawer
 - Background becomes semi-transparent on scroll via scroll listener
+- Note: Original site also has "Products" nav item but we are dropping it since all services are covered in the Services section
 
 ### 2. Hero Section
 
@@ -79,7 +97,8 @@ src/
 - Badge pill at top: "New" + "AI Readiness Assessment"
 - Headline: "Intelligent Automation for Modern Businesses."
 - Subtitle: "Advanta Labs brings AI automation to your fingertips & streamline tasks."
-- CTA button: "Get in touch"
+- Primary CTA button: "Get in touch" (solid cyan, links to #contact)
+- Secondary CTA button: "Learn more" (outlined, links to #services)
 - Background: subtle cyan gradient overlay fading from top to transparent
 - Fade-in + slide-up animation on load
 
@@ -124,6 +143,10 @@ src/
 - Section heading: "Our Simple, Smart, and Scalable Process"
 - Section subtext: "We design, develop, and implement automation tools that help you work smarter, not harder"
 - Horizontal carousel/slider with prev/next buttons and dot indicators
+- Implementation: custom Framer Motion AnimatePresence-based carousel (no external library)
+- Mobile: swipe-enabled via Framer Motion drag gestures; degrades to vertical stack below 480px
+- Manual navigation only (no auto-advance)
+- Accessibility: arrow key navigation between steps, aria-label on prev/next buttons, aria-live region for step content
 - 4 steps, each with:
 
 **Step 1 - Smart Analyzing:**
@@ -157,10 +180,35 @@ Cards:
 5. **Data-Driven Insights** - "Leverage AI to analyze vast data sets, identify trends, and make smarter, faster, and more accurate business decisions."
 6. **Scalability & Growth** - "AI adapts to your business needs, allowing you to scale efficiently without increasing workload or costs."
 
-### 6. Footer
+### 6. About Section
+
+- Anchor: `#about`
+- Brief company overview section
+- Heading: "About Advanta Labs"
+- Body text introducing the team and mission, emphasizing AI expertise for corporations
+- Optional: team photo placeholder or abstract graphic
+- Keep this lightweight since it is a single-page site (not a full about page)
+
+### 7. CTA Banner Section
+
+- Full-width banner with cyan gradient background
+- Heading: "Ready to Transform Your Business?"
+- Subtext: "Let's discuss how AI automation can streamline your operations and accelerate growth."
+- CTA button: "Book a call" (dark background, white text - inverted from the primary button style)
+- Centered layout, generous vertical padding
+
+### 8. Contact Section
+
+- Anchor: `#contact`
+- Heading: "Get in Touch"
+- Simple contact form: Name, Email, Message fields + "Send Message" submit button
+- Form is decorative/placeholder in initial build (no backend). Can be wired to a Vercel serverless function or third-party service later.
+- Alternately, display email address and LinkedIn link alongside the form
+
+### 9. Footer
 
 - 4-column layout (stacks on mobile)
-- **Left column:** Logo + tagline ("Automate Smarter, Optimize Faster, and Grow Stronger.") + newsletter form (email input + "Subscribe" button)
+- **Left column:** Logo + tagline ("Automate Smarter, Optimize Faster, and Grow Stronger.") + newsletter form (email input + "Subscribe" button). Form is placeholder in initial build (no backend integration).
 - **Links column:** Services, Process, Benefits (anchor links)
 - **Pages column:** Home, About, Contact
 - **Socials column:** LinkedIn
@@ -190,6 +238,36 @@ Cards:
 - Body text: 1rem
 - Small/tags: 0.875rem
 - Micro/labels: 0.75rem
+
+## Accessibility
+
+- Skip-to-content link as first focusable element, visually hidden until focused
+- Focus rings: 2px solid cyan outline on all interactive elements
+- Navbar mobile menu: `aria-expanded` on toggle, focus trap when open
+- Process carousel: `aria-label` on prev/next buttons, `aria-live="polite"` region for active step
+- Decorative UI mockups in cards: `aria-hidden="true"` (purely visual, no semantic content)
+- All images/icons: decorative ones get `aria-hidden`, meaningful ones get `alt` text
+- Color contrast: white text on black (#fff on #000) passes WCAG AAA; muted text (#9ca3af on #000) passes AA
+
+## Metadata (SEO)
+
+- Title: "Advanta Labs - AI Enabler for Corporations"
+- Description: "Advanta Labs brings intelligent automation to modern businesses. AI strategy, workflow automation, and custom AI solutions."
+- Open Graph: title, description, type "website", image (1200x630 placeholder)
+- Favicon: simple "A" logo mark in cyan on dark background
+- Theme color: #000000
+
+## Dependencies
+
+```text
+next@14.x
+react@18.x
+react-dom@18.x
+framer-motion@11.x
+typescript@5.x
+@types/react@18.x
+@types/node@20.x
+```
 
 ## Decisions
 
