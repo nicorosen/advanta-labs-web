@@ -1,0 +1,13 @@
+.section { padding: 6rem 2rem; max-width: 72rem; margin: 0 auto; }
+.carouselWrapper { position: relative; overflow: hidden; border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface); }
+.carousel { display: flex; }
+.controls { display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; border-top: 1px solid var(--color-border); }
+.navButton { display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: var(--color-text-muted); background: none; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 0.5rem 1rem; cursor: pointer; transition: border-color var(--transition-fast), color var(--transition-fast); }
+.navButton:hover { border-color: var(--color-primary); color: var(--color-text); }
+.navButton:disabled { opacity: 0.3; cursor: not-allowed; }
+.navButton:disabled:hover { border-color: var(--color-border); color: var(--color-text-muted); }
+.dots { display: flex; gap: 0.5rem; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--color-border); border: none; cursor: pointer; transition: background var(--transition-fast); padding: 0; }
+.dotActive { background: var(--color-primary); }
+@media (max-width: 480px) { .carousel { flex-direction: column; } .controls { display: none; } .carouselWrapper { overflow: visible; border: none; background: transparent; } }
+@media (max-width: 768px) { .section { padding: 4rem 1.5rem; } }
