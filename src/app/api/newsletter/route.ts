@@ -1,5 +1,7 @@
 import { Resend } from "resend";
+import { render } from "@react-email/render";
 import { NewsletterWelcomeEmail } from "@/components/emails/NewsletterWelcomeEmail";
+import React from "react";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -12,12 +14,16 @@ export async function POST(request: Request) {
       return Response.json({ error: "Email is required" }, { status: 400 });
     }
 
+    const welcomeHtml = await render(
+      React.createElement(NewsletterWelcomeEmail, { email })
+    );
+
     // Send welcome email to the subscriber
     const { error: welcomeError } = await resend.emails.send({
       from: "Advanta Labs <newsletter@advantalabs.co>",
       to: [email],
       subject: "Welcome to the Advanta Labs newsletter!",
-      react: NewsletterWelcomeEmail({ email }),
+      html: welcomeHtml,
     });
 
     if (welcomeError) {
