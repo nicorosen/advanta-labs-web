@@ -1,0 +1,10 @@
+.section { padding: 6rem 2rem; max-width: 72rem; margin: 0 auto; }
+.content { display: flex; gap: 4rem; align-items: center; }
+.text { flex: 1; }
+.heading { font-family: var(--font-figtree), sans-serif; font-size: 2.5rem; font-weight: 800; color: var(--color-text); line-height: 1.2; margin-bottom: 1.5rem; }
+.body { font-size: 1.0625rem; color: var(--color-text-muted); line-height: 1.8; }
+.graphic { flex: 1; display: flex; justify-content: center; align-items: center; }
+.pattern { width: 100%; max-width: 20rem; aspect-ratio: 1; border-radius: var(--radius-lg); background: linear-gradient(135deg, var(--color-primary-dim), var(--color-surface)); border: 1px solid var(--color-border); display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr); gap: 1rem; padding: 2rem; }
+.patternCell { border-radius: var(--radius-sm); background: var(--color-border); opacity: 0.5; transition: opacity var(--transition-normal); }
+.patternCell:nth-child(odd) { background: var(--color-primary); opacity: 0.15; }
+@media (max-width: 768px) { .content { flex-direction: column; gap: 2rem; } .heading { font-size: 1.75rem; } .section { padding: 4rem 1.5rem; } }
