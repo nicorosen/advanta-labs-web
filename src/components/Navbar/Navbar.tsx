@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/Button";
+import { Logo } from "@/components/ui/Logo";
 import styles from "./Navbar.module.css";
 
 const NAV_ITEMS = [
@@ -60,8 +61,8 @@ export function Navbar() {
         role="navigation"
         aria-label="Main navigation"
       >
-        <a href="#hero" className={styles.logo}>
-          Advanta<span className={styles.logoAccent}>Labs</span>
+        <a href="#hero" className={styles.logoLink}>
+          <Logo />
         </a>
 
         <ul className={styles.navLinks}>

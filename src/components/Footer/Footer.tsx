@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
+import { Logo } from "@/components/ui/Logo";
 import styles from "./Footer.module.css";
 
 const LINK_SECTIONS = [
@@ -64,9 +65,7 @@ export function Footer() {
     <footer className={styles.footer}>
       <div className={styles.columns}>
         <div className={styles.brandCol}>
-          <div className={styles.logo}>
-            Advanta<span className={styles.logoAccent}>Labs</span>
-          </div>
+          <Logo size="large" />
           <p className={styles.tagline}>
             Automate Smarter, Optimize Faster, and Grow Stronger.
           </p>

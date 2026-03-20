@@ -1,0 +1,29 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon {
+  width: 1.75rem;
+  height: 1.75rem;
+  flex-shrink: 0;
+}
+
+.text {
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+.large .icon {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.large .text {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
