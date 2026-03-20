@@ -5,7 +5,7 @@ import "./globals.css";
 const figtree = Figtree({
   subsets: ["latin"],
   variable: "--font-figtree",
-  weight: ["700", "800", "900"],
+  weight: ["400", "500", "600", "700", "800", "900"],
   display: "swap",
 });
 

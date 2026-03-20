@@ -5,13 +5,17 @@
 }
 
 .label {
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-figtree), sans-serif;
   font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--color-primary);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 1rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 9999px;
+  padding: 0.5rem 1.25rem;
+  display: inline-block;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.5rem;
 }
 
 .heading {
