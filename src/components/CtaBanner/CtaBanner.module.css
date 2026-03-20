@@ -1,0 +1,5 @@
+.section { padding: 6rem 2rem; background: linear-gradient(135deg, rgba(35, 222, 203, 0.15), rgba(26, 94, 240, 0.1)); border-top: 1px solid rgba(35, 222, 203, 0.2); border-bottom: 1px solid rgba(35, 222, 203, 0.2); }
+.content { max-width: 48rem; margin: 0 auto; text-align: center; }
+.heading { font-family: var(--font-figtree), sans-serif; font-size: 2.5rem; font-weight: 800; color: var(--color-text); line-height: 1.2; margin-bottom: 1rem; }
+.subtext { font-size: 1.0625rem; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 2rem; }
+@media (max-width: 768px) { .heading { font-size: 1.75rem; } .section { padding: 4rem 1.5rem; } }
